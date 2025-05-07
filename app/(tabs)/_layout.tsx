@@ -1,8 +1,6 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
-
+import { Tabs } from 'expo-router';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
@@ -20,40 +18,52 @@ export default function TabLayout() {
 
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="two"
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-    </Tabs>
+  screenOptions={{
+    tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+    headerShown: useClientOnlyValue(false, true),
+  }}>
+  <Tabs.Screen
+    name="index"
+    options={{
+      title: 'Exercício 1',
+      headerTitle: 'Exercício 1',
+    }}
+  />
+  <Tabs.Screen
+    name="two"
+    options={{
+      title: 'Exercício 2',
+      headerTitle: 'Exercício 2',
+    }}
+  />
+  <Tabs.Screen
+    name="three"
+    options={{
+      title: 'Exercício 3',
+      headerTitle: 'Exercício 3',
+    }}
+  />
+  <Tabs.Screen
+    name="four"
+    options={{
+      title: 'Exercício 4',
+      headerTitle: 'Exercício 4',
+    }}
+    />
+    <Tabs.Screen
+    name="five"
+    options={{
+      title: 'Exercício 5',
+      headerTitle: 'Exercício 5',
+    }}
+    />
+    <Tabs.Screen
+    name="six"
+    options={{
+      title: 'Exercício 6',
+      headerTitle: 'Exercício 6',
+    }}
+    />
+  </Tabs>
   );
 }
